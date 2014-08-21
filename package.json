@@ -1,0 +1,30 @@
+{
+  "name": "kamote",
+  "version": "0.0.0",
+  "description": "Yet another RPC implementation using Fast-Buffers.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/majimboo/kamotejs"
+  },
+  "keywords": [
+    "rpc",
+    "remote",
+    "server",
+    "client",
+    "fast",
+    "buffer"
+  ],
+  "author": "Majid Arif Siddiqui <me@majidarif.com> (http://blog.majidarif.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/majimboo/kamotejs/issues"
+  },
+  "homepage": "https://github.com/majimboo/kamotejs"
+}
