@@ -9,8 +9,10 @@ describe('example', function() {
         server.listen(7778);
 
         // add a new method
-        server.add('remoteMethod', function () {
-            done();
+        server.add('remoteMethod', function(finish) {
+            if (finish) {
+                done();
+            }
         });
 
         // create a new client
@@ -19,7 +21,7 @@ describe('example', function() {
 
         // call remote function
         client.on('ready', function() {
-            client.remoteMethod();
+            client.remoteMethod(true);
         });
     });
 });
