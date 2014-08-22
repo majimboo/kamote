@@ -1,7 +1,7 @@
 {
   "name": "kamote",
   "version": "0.0.0",
-  "description": "Yet another RPC implementation using Fast-Buffers.",
+  "description": "Yet another RPC for Node.",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/majimboo/kamotejs"
+    "url": "git://github.com/majimboo/kamote"
   },
   "keywords": [
     "rpc",
@@ -24,7 +24,11 @@
   "author": "Majid Arif Siddiqui <me@majidarif.com> (http://blog.majidarif.com/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/majimboo/kamotejs/issues"
+    "url": "https://github.com/majimboo/kamote/issues"
   },
-  "homepage": "https://github.com/majimboo/kamotejs"
+  "homepage": "https://github.com/majimboo/kamote",
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "mocha": "^1.21.4"
+  }
 }
