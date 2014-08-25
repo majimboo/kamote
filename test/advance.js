@@ -22,7 +22,7 @@ describe('kamote-advance', function() {
 
         // create a new server
         var server = new kamote.Server();
-        server.listen(7778);
+        server.listen(9456);
 
         // add a new method
         server.add('create', function(sid, data) {
@@ -35,7 +35,7 @@ describe('kamote-advance', function() {
 
         // create a new client
         var client = new kamote.Client();
-        client.connect(7778);
+        client.connect(9456);
 
         // call remote function
         client.on('ready', function() {
