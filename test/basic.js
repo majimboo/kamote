@@ -9,8 +9,7 @@ describe('kamote-basic', function() {
     describe('server', function() {
         describe('#create', function() {
             it('should create a new server', function(done) {
-                var Server = kamote.Server;
-                server = Server.create();
+                server = new kamote.Server();
                 server.should.be.instanceof(net.Server);
                 server.listen(7777);
                 done();
@@ -53,8 +52,7 @@ describe('kamote-basic', function() {
     describe('client', function() {
         describe('#create', function() {
             it('should create a new client', function(done) {
-                var Client = kamote.Client;
-                client = Client.create();
+                client = new kamote.Client();
                 done();
             });
         });
