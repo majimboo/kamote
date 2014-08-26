@@ -8,7 +8,7 @@ Yet another RPC for Node.
 Install
 -------
 
-    $ npm install kamote --save
+    $ npm install kamote --production --save
 
 Server
 ------

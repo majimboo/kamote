@@ -28,10 +28,13 @@
   },
   "homepage": "https://github.com/majimboo/kamote",
   "devDependencies": {
+    "benchmark": "^1.0.0",
     "chai": "^1.9.1",
-    "mocha": "^1.21.4"
+    "mocha": "^1.21.4",
+    "zerorpc": "^0.9.3"
   },
   "dependencies": {
-    "msgpack-js": "^0.3.0"
+    "msgpack-js": "^0.3.0",
+    "stream-frame": "0.0.3"
   }
 }
