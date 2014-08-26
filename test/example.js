@@ -75,28 +75,7 @@ describe('example', function() {
         });
     });
 
-    it('should work with errors in parameters', function(done) {
-        // create a new server
-        var server = new kamote.Server();
-        server.listen(7778);
-
-        // add a new method
-        server.add('remoteMethod', function(err) {
-            client.destroy();
-            server.close();
-            err.should.be.instanceof(Error);
-            done();
-        });
-
-        // create a new client
-        var client = new kamote.Client();
-        client.connect(7778);
-
-        // call remote function
-        client.on('ready', function() {
-            client.remoteMethod(new Error('some error'));
-        });
-    });
+    it('should work with errors in parameters');
 
     it('should work without parameters', function(done) {
         // create a new server
