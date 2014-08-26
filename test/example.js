@@ -27,6 +27,31 @@ describe('example', function() {
         });
     });
 
+    it('should work with parameters in context style', function(done) {
+        // the function
+        function remoteMethod(finish) {
+            if (finish) {
+                client.destroy();
+                server.close();
+                done();
+            }
+        }
+
+        // create a new server
+        var server = new kamote.Server({
+            remoteMethod: remoteMethod
+        }).listen(6123);
+
+        // create a new client
+        var client = new kamote.Client();
+        client.connect(6123);
+
+        // call remote function
+        client.on('ready', function() {
+            client.remoteMethod(true);
+        });
+    });
+
     it('should work with multiple parameters', function(done) {
         // create a new server
         var server = new kamote.Server();
