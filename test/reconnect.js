@@ -12,10 +12,35 @@ describe('kamote-reconnect', function() {
             done();
         });
 
+        client.on('disconnect', function() {
+            console.log('retrying...');
+        });
+
         // create a new server
         var server = new kamote.Server();
         // tried to delay this with setTimeout and it works
         // but removed it just to make the test faster
         server.listen(7345);
+    });
+
+    it('should emit disconnect when disconnected', function(done) {
+        // create a new server
+        var server = new kamote.Server();
+
+        // create a new client
+        var client = new kamote.Client();
+        client.reconnect(5126);
+
+        client.on('disconnect', function() {
+            done();
+        });
+
+        client.on('connect', function() {
+            server.close();
+        });
+
+        // tried to delay this with setTimeout and it works
+        // but removed it just to make the test faster
+        server.listen(5126);
     });
 });
