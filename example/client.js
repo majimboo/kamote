@@ -6,7 +6,7 @@ client.reconnect(9455);
 
 // call remote function
 client.on('ready', function() {
-    client.remoteMethod(true);
+    client.createSession(1, 'hello world');
 });
 
 client.on('connect', function() {
