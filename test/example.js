@@ -6,7 +6,7 @@ describe('example', function() {
     it('should work with parameters', function(done) {
         // create a new server
         var server = new kamote.Server();
-        server.listen(7778);
+        server.listen(9455);
 
         // add a new method
         server.add('remoteMethod', function(finish) {
@@ -19,7 +19,7 @@ describe('example', function() {
 
         // create a new client
         var client = new kamote.Client();
-        client.connect(7778);
+        client.connect(9455);
 
         // call remote function
         client.on('ready', function() {
@@ -55,7 +55,7 @@ describe('example', function() {
     it('should work with multiple parameters', function(done) {
         // create a new server
         var server = new kamote.Server();
-        server.listen(7778);
+        server.listen(7357);
 
         // add a new method
         server.add('remoteMethod', function(finish, care) {
@@ -68,7 +68,7 @@ describe('example', function() {
 
         // create a new client
         var client = new kamote.Client();
-        client.connect(7778);
+        client.connect(7357);
 
         // call remote function
         client.on('ready', function() {
@@ -79,7 +79,7 @@ describe('example', function() {
     it('should work with object in parameters', function(done) {
         // create a new server
         var server = new kamote.Server();
-        server.listen(7778);
+        server.listen(5627);
 
         // add a new method
         server.add('remoteMethod', function(opts) {
@@ -92,7 +92,7 @@ describe('example', function() {
 
         // create a new client
         var client = new kamote.Client();
-        client.connect(7778);
+        client.connect(5627);
 
         // call remote function
         client.on('ready', function() {
@@ -105,14 +105,14 @@ describe('example', function() {
     it('should work without parameters', function(done) {
         // create a new server
         var server = new kamote.Server();
-        server.listen(7778);
+        server.listen(5817);
 
         // add a new method
         server.add('remoteMethod', done);
 
         // create a new client
         var client = new kamote.Client();
-        client.connect(7778);
+        client.connect(5817);
 
         // call remote function
         client.on('ready', function() {

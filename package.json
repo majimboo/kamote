@@ -33,6 +33,7 @@
     "mocha": "^1.21.4"
   },
   "dependencies": {
+    "msgpack": "^0.2.4",
     "msgpack-js": "^0.3.0",
     "stream-frame": "0.0.3"
   }
