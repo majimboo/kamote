@@ -28,8 +28,7 @@ function removeSession(sid) {
 var server = new kamote.Server({
     createSession: createSession,
     removeSession: removeSession
-});
-server.listen(9455);
+}).listen(9455);
 
 
 
