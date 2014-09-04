@@ -3,12 +3,16 @@ kamote [![Build Status](https://travis-ci.org/majimboo/kamote.svg)](https://trav
 
 [![NPM](https://nodei.co/npm/kamote.png?downloads=true)](https://nodei.co/npm/kamote/)
 
-Yet another RPC for Node.
+A simple, fast RPC for Node.
 
 Install
 -------
 
-    $ npm install kamote --production --save
+    $ npm install kamote --save
+
+Installing the latest version
+
+    $ npm install git+https://github.com/majimboo/kamote.git
 
 Server
 ------
@@ -38,4 +42,48 @@ Full example:
 
     server.listen(9456);
 
+You can also use the context style:
 
+    function plusOne(value) {
+        console.log(value + 1);
+    }
+
+    var server = new kamote.Server({
+        plusOne: plusOne
+    }).listen(9456);
+
+Client
+------
+
+To create a new client:
+
+    var kamote = require('kamote');
+    var client = new kamote.Client();
+
+Events:
+
+- `error` - When an error occurs.
+- `connect` - When the socket has connected to the server.
+- `disconnect` - When disconnected from the server.
+- `ready` - When all the remote functions has been loaded.
+
+Methods:
+
+- `connect(port [, host])` - Connects to the remote host:port.
+- `reconnect(port [, host])` - Connects to the remote host:port and retries if unable.
+
+Full example:
+
+    var kamote = require('kamote');
+    var server = new kamote.Server();
+
+    client.plusOne(100);
+
+    client.reconnect(9456);
+
+Todo
+----
+
+- Support callbacks.
+- Support returns.
+- Support node objects like Errors.
