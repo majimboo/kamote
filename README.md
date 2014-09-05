@@ -75,7 +75,7 @@ Methods:
 Full example:
 
     var kamote = require('kamote');
-    var server = new kamote.Server();
+    var client = new kamote.Client();
 
     client.plusOne(100);
 
