@@ -1,6 +1,6 @@
 {
   "name": "kamote",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Yet another RPC for Node.",
   "main": "index.js",
   "directories": {
@@ -33,6 +33,7 @@
     "mocha": "^1.21.4"
   },
   "dependencies": {
+    "lodash": "^2.4.1",
     "msgpack": "^0.2.4",
     "stream-frame": "0.0.3"
   }

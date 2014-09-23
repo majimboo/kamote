@@ -38,9 +38,11 @@ describe('example', function() {
         }
 
         // create a new server
-        var server = new kamote.Server({
+        var server = new kamote.Server();
+        server.listen(6123);
+        server.def({
             remoteMethod: remoteMethod
-        }).listen(6123);
+        });
 
         // create a new client
         var client = new kamote.Client();

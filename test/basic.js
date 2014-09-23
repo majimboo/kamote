@@ -47,6 +47,21 @@ describe('kamote-basic', function() {
                 done();
             });
         });
+
+        describe('#def', function() {
+            it('should allow functions with callbacks', function(done) {
+                function add(a, b, result) {
+                    result(a + b);
+                }
+
+                server.def({
+                    add: add
+                });
+
+                done();
+            });
+        });
+
     });
 
     describe('client', function() {
@@ -65,9 +80,16 @@ describe('kamote-basic', function() {
         });
 
         describe('#method', function() {
-            it('should be able to call methods exposed by server', function(done) {
+            it('should be able to call remote methods', function(done) {
                 client.count();
                 done();
+            });
+
+            it('should invoke callback', function(done) {
+                client.add(5, 3, function(result) {
+                    result.should.be.equal(8);
+                    done();
+                });
             });
         });
     });

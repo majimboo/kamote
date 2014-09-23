@@ -44,13 +44,15 @@ Full example:
 
 You can also use the context style:
 
-    function plusOne(value) {
-        console.log(value + 1);
+    function plusOne(n, result) {
+        result(n + 1);
     }
 
-    var server = new kamote.Server({
+    var server = new kamote.Server();
+    server.listen(6123);
+    server.def({
         plusOne: plusOne
-    }).listen(9456);
+    });
 
 Client
 ------
@@ -77,13 +79,14 @@ Full example:
     var kamote = require('kamote');
     var client = new kamote.Client();
 
-    client.plusOne(100);
+    client.plusOne(100, function(result) {
+        console.log(result); // 101
+    });
 
     client.reconnect(9456);
 
 Todo
 ----
 
-- Support callbacks.
 - Support returns.
 - Support node objects like Errors.
