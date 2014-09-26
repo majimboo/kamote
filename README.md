@@ -36,8 +36,8 @@ Full example:
     var kamote = require('kamote');
     var server = new kamote.Server();
 
-    server.add('plusOne', function(value) {
-        console.log(value + 1);
+    server.add('plusOne', function (n, result) {
+        result(n + 1);
     });
 
     server.listen(9456);
@@ -71,8 +71,8 @@ Events:
 
 Methods:
 
-- `connect(port [, host])` - Connects to the remote host:port.
-- `reconnect(port [, host])` - Connects to the remote host:port and retries if unable.
+- `connect(port[, host])` - Connects to the remote host:port.
+- `reconnect(port[, host])` - Connects to the remote host:port and retries if unable.
 
 Full example:
 
@@ -88,5 +88,4 @@ Full example:
 Todo
 ----
 
-- Support returns.
 - Support node objects like Errors.
