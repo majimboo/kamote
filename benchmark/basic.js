@@ -3,26 +3,17 @@
 var Benchmark = require('benchmark');
 var suite = new Benchmark.Suite();
 
-var zerorpc = require('zerorpc');
 var kamote  = require('../');
 
-// zero rpc server
-var server = new zerorpc.Server({
-    plusOne: function(value) {
-        return value + 1;
-    }
-});
-server.bind('tcp://0.0.0.0:4242');
-
 // kamote rcp server
+var controller = {
+  plusOne: function(value, result) {
+    result(value + 1);
+  }
+};
 var server = new kamote.Server();
-server.add('plusOne', function(value) {
-    return value + 1;
-});
+server.def(controller);
 server.listen(9456);
-
-var zclient = new zerorpc.Client();
-zclient.connect('tcp://127.0.0.1:4242');
 
 var kclient = new kamote.Client();
 kclient.connect(9456);
@@ -33,11 +24,9 @@ kclient.on('ready', function() {
   suite
 
   .add('kamote', function() {
-    kclient.plusOne(11);
-  })
+    kclient.plusOne(11, function(result) {
 
-  .add('zerorpc', function() {
-    zclient.invoke('plusOne', 11);
+    });
   })
 
   // add listeners
@@ -45,7 +34,6 @@ kclient.on('ready', function() {
     console.log(String(event.target));
   })
   .on('complete', function() {
-    console.log('Fastest is ' + this.filter('fastest').pluck('name'));
     process.kill();
   })
   // run async

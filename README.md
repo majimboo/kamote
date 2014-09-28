@@ -85,7 +85,13 @@ Full example:
 
     client.reconnect(9456);
 
+Benchmark
+---------
+
+    kamote@0.0.2 x 38,981 ops/sec ±4.18% (86 runs sampled)
+
 Todo
 ----
 
+- Frame client stream.
 - Support node objects like Errors.
